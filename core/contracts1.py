@@ -1,4 +1,4 @@
-USER_DATA_SCHEME1 = {
+RESOURCE_SCHEME = {
     "type" : "object",
     "properties" : {
         "id" : {"type": "number"},

@@ -1,7 +1,7 @@
 import re
 import httpx
 from jsonschema import validate
-from core.contracts1 import USER_DATA_SCHEME1
+from core.contracts1 import RESOURCE_SCHEME
 
 BASE_URL = "https://reqres.in/"
 LIST_RESOURCE = "api/unknown"
@@ -17,7 +17,7 @@ def test_list_resource():
     data = response.json()['data']
 
     for item in data:
-        validate(item, USER_DATA_SCHEME1)
+        validate(item, RESOURCE_SCHEME)
         assert item['color'].startswith(COLOR_START)
         assert re.match(PANTONE_VALUE_MASK, item['pantone_value'])
         assert re.match(YEAR_MASK, str(item['year']))
