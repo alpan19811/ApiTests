@@ -10,13 +10,13 @@ SINGLE_USER_NOT_FOUND = "api/users/23"
 EMAIL_ENDS = "@reqres.in"
 AVATAR_ENDS = "-image.jpg"
 
-@allure.suite('Проверка запросов данных пользователей')
-@allure.title('Проверяем получение списка пользователей')
+@allure.suite('Проверка запросов данных пользователей') # сьют - это общее название отчета по совокупности тестов/сьюту тестов
+@allure.title('Проверяем получение списка пользователей') # тайтл - это название отчета непосредственно для теста
 def test_list_users():
-    with allure.step(f'Делаем запрос по адресу: {BASE_URL + LIST_USERS}'):
+    with allure.step(f'Делаем запрос по адресу: {BASE_URL + LIST_USERS}'): # это шаги...т.е. пояснение сути непосредственно для шага запроса по адресу BASE_URL + LIST_USERS
         response = httpx.get(BASE_URL + LIST_USERS)
 
-    with allure.step('Проверяем код ответа'):
+    with allure.step('Проверяем код ответа'): # это шаги...т.е. пояснение сути непосредственно для шага проверки кода ответа 200
         assert response.status_code == 200
 
     data = response.json()['data']
